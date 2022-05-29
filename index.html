@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="cs">
+
+<head>
+  	<meta charset="utf-8">
+  	<title>Správce úkolů</title>
+  	<meta name="Správce úkolů" content="Poznamenávejte si své úkoly">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+ 	<link rel="icon" href="img/icon.png">
+
+  	<link rel="stylesheet" href="css/main.css">
+
+  	<meta name="theme-color" content="#000000">
+</head>
+
+<body>
+	<div id="window">
+		<header>
+			<span>Správce úkolů</span>
+		</header>
+		<div id="main-div">
+			<nav>
+				<div>
+					<button id="show-right-panel">Zobrazit pravý panel s návrhy úkolů</button>
+					<label>Funkcionality:</label>
+				</div>
+				<ol id="functionality">
+					<li>Poznamenávání si <b>úkolů</b>, jejich <b>rušení</b> a <b>historie</b>.</li>
+					<li><b>Reset</b> zadaných úkolů.</li>
+					<li>Zobrazení <b>návodu</b>.</li>
+					<li><b>Přehrání hudby</b> pomocí <b>HTML</b>.</li>
+					<li><b>Přehrání hudby</b> pomocí <b>JavaScriptu</b>.</li>
+					<li>Zobrazení <b>pravého panelu</b> s návrhy úkolů pomocí tlačítka výše.</li>
+					<li>Detekce a zobrazení <b>upozornění</b> při <b>odpojení od internetu</b>.</li>
+					<li>Při <b>opuštění stránky</b> se zobrazí <b>modální okno</b>.</li>
+				</ol>
+			</nav>
+			<main>
+				<div>
+					<h1><label for="task-input">Úkol:</label></h1><input id="task-input" type="text" placeholder=" Zde zadejte úkol" autofocus>
+
+					<button id="submit-button">Přidat úkol</button>
+					<button class="reset-button">Resetuj úkoly</button>
+					<div class="scalable-box">Zobrazit<br>Návod</div>
+				</div>
+				<div id="active-tasks-block">
+					<label>Aktivní úkoly:</label>
+					<ul id="active-tasks"></ul>
+				</div>
+				<div id="finished-tasks-block">
+					<label>Dokončené úkoly:</label>
+					<ul id="finished-tasks"></ul>
+				</div>
+				<div id="audio-div">
+					<span>Hudba pro relaxaci:</span>
+					<audio controls>
+						<source src="media/summer_pop.mp3" type="audio/mpeg">
+						Audio není v tomto prohlížeči podporované
+					</audio>
+					<button id="audio-button">Přehraj/pozastav audio pomocí JS</button>
+				</div>
+			</main>
+			<aside>
+
+			</aside>
+			<div id="right-panel">
+				<div>
+					<label>Nejčastější úkoly:</label>
+				</div>
+				<ol>
+					<li>Jít nakoupit</li>
+					<li>Učit se</li>
+					<li>Umýt nádobí</li>
+					<li>Odpočinout si</li>
+					<li>Uklidit si</li>
+					<li>Vynést odpadky</li>
+					<li>Nakrmit domácí zvíře</li>
+					<li>Vyprat oblečení</li>
+				</ol>
+			</div>
+		</div>
+		<div class="modal">
+			<div class="modal-content">
+				<p>To již odcházíte?</p>
+				<button id="modal-button">
+					Ne
+				</button>
+			</div>
+		</div>
+		<footer>
+			<p>© Lukáš Novák - SIT FEL ČVUT</p>
+		</footer>
+	</div>
+
+	<div class="alert">
+		<p>Jste offline!</p>
+	</div>
+  	<script src="js/main.js"></script>
+</body>
+
+</html>
