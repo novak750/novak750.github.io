@@ -281,10 +281,38 @@ createTasks(!active);
 
 /* --------------------- OFFLINE ALERT MENU ------------------------- */
 
+
 /**
  * Offline detector.
  */
-window.addEventListener('online', updateOnline);
+setInterval(async () => {
+    const online = await checkOnline();
+    const alert_element = document.querySelector(".alert");
+    if (!online) {
+        alert_element.classList.add('alert-visible');
+    } else {
+        alert_element.classList.remove('alert-visible');
+    }
+}, 3000);
+
+/**
+ * Async. download 1 pixel image to check if online.
+ * @returns {Promise<boolean>} Result of time taken to download.
+ */
+const checkOnline = async () => {
+    try {
+        const online = await fetch("img/pixel.png");
+        return online.status >= 100 && online.status < 400;
+    } catch (e) {
+        return false;
+    }
+};
+
+/* Alternative solution: */
+/**
+ * Offline detector.
+ */
+/*window.addEventListener('online', updateOnline);
 window.addEventListener('offline', updateOnline);
 
 function updateOnline() {
@@ -294,34 +322,7 @@ function updateOnline() {
     } else {
         alert_element.classList.remove('alert-visible');
     }
-}
-
-/* Alternative solution: */
-/**
- * Offline detector.
- */
-/*setInterval(async () => {
-    const online = await checkOnline();
-    const alert_element = document.querySelector(".alert");
-    if (!online) {
-        alert_element.classList.add('alert-visible');
-    } else {
-        alert_element.classList.remove('alert-visible');
-    }
-}, 3000);*/
-
-/**
- * Async. download 1 pixel image to check if online.
- * @returns {Promise<boolean>} Result of time taken to download.
- */
-/*const checkOnline = async () => {
-    try {
-        const online = await fetch("img/pixel.png");
-        return online.status >= 100 && online.status < 400;
-    } catch (e) {
-        return false;
-    }
-};*/
+}*/
 
 /* ------------------------ SCALABLE BOX ---------------------------- */
 const scalable_box = document.querySelector('.scalable-box');
