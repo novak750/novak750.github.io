@@ -315,9 +315,6 @@ body.modal-visible .modal-content {
 }
 
 @media screen and (max-width: 520px) {
-	.column {
-		flex: 50%;
-	}
 	.row {
 		flex-direction: column;
 	}
